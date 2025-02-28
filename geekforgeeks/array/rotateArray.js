@@ -48,16 +48,16 @@ console.log(arr2);  // Output should be [8, 10, 12, 14, 16, 18, 20, 2, 4, 6]
 //     // Ensure D is within the bounds of the array length
 //     D = D % N;
     
-//     // Step 1: Reverse the first D elements
-//     reverse(arr, N-D, N-1);
-//     console.log(arr);
+    // // Step 1: Reverse the first N-D elements
+    // reverse(arr, 0, N - D - 1);
+    // console.log(arr);
     
-//     // Step 2: Reverse the remaining elements
-//     reverse(arr, 0, D);
-//     console.log(arr);
+    // // Step 2: Reverse the remaining elements
+    // reverse(arr, N - D, N - 1);
+    // console.log(arr);
     
-//     // Step 3: Reverse the entire array
-//     reverse(arr, 0, N - 1);
+    // // Step 3: Reverse the entire array
+    // reverse(arr, 0, N - 1);
 // }
 
 // // Example usage:

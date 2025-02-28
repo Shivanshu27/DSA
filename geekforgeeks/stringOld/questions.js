@@ -151,7 +151,28 @@ function lengthOfLongestSubstring(s) {
   // Example usage:
 //   const inputString = "abcabcbb";
   console.log(lengthOfLongestSubstring(inputString)); // Outputs: 3 (the longest substring without repeating characters is "abc")
-  
+
+
+// Given a string s, convert the first letter of each word in the string to uppercase. 
+
+
+function makeTitle(str) {
+  return str.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(' ')
+}
+
+// without inbuilt functions
+function makeTitle(str) {
+  let result = ''
+  for (let i = 0; i < str.length; i++) {
+      if (i === 0 || str[i - 1] === ' ') {
+          result += str[i].toUpperCase()
+      } else {
+          result += str[i].toLowerCase()
+      }
+  }
+  return result
+}
+
 
 // String to Integer (atoi):
 // Implement the atoi function which converts a string to an integer.

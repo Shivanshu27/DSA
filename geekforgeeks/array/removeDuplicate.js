@@ -71,3 +71,21 @@ function findDuplicates(arr){
     }
     return result.sort((a,b) => a - b);
 }
+
+
+
+// Given a sorted array arr. Return the size of the modified array which contains only distinct elements.
+// Note:
+// 1. Don't use set or HashMap to solve the problem.
+// 2. You must return the modified array size only where distinct elements are present and modify the original array such that all the distinct elements come at the beginning of the original array.
+
+function removeDuplicates(arr) {
+    let index = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== arr[i + 1]) {
+            arr[index] = arr[i];
+            index++;
+        }
+    }
+    return index;
+}

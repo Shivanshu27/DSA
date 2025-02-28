@@ -1,36 +1,36 @@
 function isAnagram(a,b){
     // return a.toLowerCase().split('').sort().join('') === b.toLowerCase().split('').sort().join('');
-    if(a.length !== b.length) return false; 
-    const charCount = {};   
-    for(let i = 0; i < a.length; i++){
-        charCount[a[i]] = (charCount[a[i]] || 0) + 1;
-    }
-
-    for(let i = 0; i < b.length; i++){
-        if(!charCount[b[i]]) return false;
-        charCount[b[i]]--;
-    }
-    for (let key in charCount){
-        if(charCount[key] !== 0) return false;
-    }
-    return true;
-    // without in built js functions
-    // let aMap = {};
-    // let bMap = {};
-    // a = a.toLowerCase();
-    // b = b.toLowerCase();
-    // if(a.length !== b.length) return false;
+    // if(a.length !== b.length) return false; 
+    // const charCount = {};   
     // for(let i = 0; i < a.length; i++){
-    //     aMap[a[i]] = aMap[a[i]] + 1 || 1;
-    //     bMap[b[i]] = bMap[b[i]] + 1 || 1;
+    //     charCount[a[i]] = (charCount[a[i]] || 0) + 1;
     // }
 
-    // console.log(aMap);
-    // console.log(bMap);
-    // for(let key in aMap){
-    //     if(aMap[key] !== bMap[key]) return false;
+    // for(let i = 0; i < b.length; i++){
+    //     if(!charCount[b[i]]) return false;
+    //     charCount[b[i]]--;
+    // }
+    // for (let key in charCount){
+    //     if(charCount[key] !== 0) return false;
     // }
     // return true;
+    // without in built js functions
+    let aMap = {};
+    let bMap = {};
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    if(a.length !== b.length) return false;
+    for(let i = 0; i < a.length; i++){
+        aMap[a[i]] = aMap[a[i]] + 1 || 1;
+        bMap[b[i]] = bMap[b[i]] + 1 || 1;
+    }
+
+    console.log(aMap);
+    console.log(bMap);
+    for(let key in aMap){
+        if(aMap[key] !== bMap[key]) return false;
+    }
+    return true;
 }
 
 console.log(isAnagram('geeksforgeeks', 'forgeeksgeeks')); // true
