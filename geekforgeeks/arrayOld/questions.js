@@ -2,49 +2,6 @@
 
 // Of course! Here are some interview questions related to arrays that you might find helpful:
 
-//     Two Sum:
-//     Given an array of integers and a target sum, find two numbers in the array that add up to the target sum.
-
-function sum(nums, target){
-    let output=[];
-    for (let i=0; i<nums.length-1;i++){
-        for (j=i+1; j<nums.length;j++){
-            console.log(nums[i]+nums[j])
-            if (target=== nums[i]+nums[j]){
-            return [i,j]
-            }
-        }
-    }
-}
-
-
-function findTwoNumbersWithSum(nums, target) {
-    const numMap = new Map(); // Using a map to store encountered numbers
-    
-    for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
-        
-        // Check if the complement exists in the map
-        if (numMap.has(complement)) {
-            return [complement, nums[i]]; // Found the pair
-        }
-        
-        // Add the current number to the map
-        numMap.set(nums[i], i);
-    }
-    
-    return null; // No valid pair found
-}
-
-const nums = [2, 7, 11, 15];
-const targetSum = 9;
-const result = findTwoNumbersWithSum(nums, targetSum);
-
-if (result) {
-    console.log(`The two numbers are ${result[0]} and ${result[1]}.`);
-} else {
-    console.log(`No two numbers add up to the target sum.`);
-}
 
 
 //     Maximum Subarray:
@@ -72,19 +29,6 @@ const nums1 = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 const maxSum = findMaxSubarraySum(nums1);
 console.log(`The maximum subarray sum is: ${maxSum}`);
 
-
-//     Product of Array Except Self:
-//     Given an array of integers, return an array where each element is the product of all the elements of the original array except the one at that index.
-
-function productExceptSelf(nums) {
-    const totalProduct = nums.reduce((acc, num) => acc * num, 1);
-    
-    return nums.map(num => totalProduct / num);
-}
-
-const nums2 = [1, 2, 3, 4];
-const result2 = productExceptSelf(nums2);
-console.log(result); // Output: [24, 12, 8, 6]
 
 
 //     Rotate Array:

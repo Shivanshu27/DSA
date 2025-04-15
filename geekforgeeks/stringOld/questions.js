@@ -187,33 +187,7 @@ function makeTitle(str) {
 // ZigZag Conversion:
 // Convert a given string into a zigzag pattern.
 
-// Valid Parentheses:
-// Given a string containing just the characters '(', ')', '{', '}', '[', ']', determine if the input string is valid.
 
-function isValid(s) {
-    const stack = [];
-    const parenthesesMap = {
-      ')': '(',
-      '}': '{',
-      ']': '['
-    };
-  
-    for (let char of s) {
-      if (char === '(' || char === '{' || char === '[') {
-        stack.push(char);
-      } else if (char === ')' || char === '}' || char === ']') {
-        if (stack.length === 0 || stack.pop() !== parenthesesMap[char]) {
-          return false; // Invalid closing parenthesis
-        }
-      }
-    }
-  
-    return stack.length === 0; // If the stack is empty, it's valid
-  }
-  
-  // Example usage:
-//   const inputString = "([{}])";
-  console.log(isValid(inputString)); // Outputs: true
   
 
 // Count and Say:
@@ -240,6 +214,41 @@ function groupAnagrams(strs) {
   // Example usage:
   const inputArray = ["eat", "tea", "tan", "ate", "nat", "bat"];
   console.log(groupAnagrams(inputArray));
+
+  // time complexity: O(n * k log k) where n is the number of strings and k is the maximum length of a string.
+// Space complexity: O(n * k) for storing the anagrams in the map.
+
+function groupAnagrams(strs) {
+  const res = {};
+  for (let s of strs) {
+      const count = new Array(26).fill(0);
+      for (let c of s) {
+          // explain this line
+          // 'a'.charCodeAt(0) gives the ASCII value of 'a'
+          // c.charCodeAt(0) gives the ASCII value of the character c
+          // subtracting the two gives the index in the count array
+          // for example, if c is 'b', then c.charCodeAt(0) - 'a'.charCodeAt(0) = 1
+          // this means that we are counting the occurrences of each character
+          // in the string s
+          // for example, if s is "eat", then count[4] will be incremented for 'e', count[0] for 'a', and count[19] for 't'
+          // this is a way to map characters 'a' to 'z' to indices 0 to 25
+          // so we are counting the occurrences of each character in the string
+          // and storing it in the count array
+          // the count array will be used as a key to group anagrams together
+          // for example, if s is "eat", then count will be [1, 0, 0, 0, 1
+          count[c.charCodeAt(0) - 'a'.charCodeAt(0)] += 1;
+      }
+      const key = count.join(',');
+      if (!res[key]) {
+          res[key] = [];
+      }
+      res[key].push(s);
+  }
+  return Object.values(res);
+}
+
+// time complexity: O(n * k) where n is the number of strings and k is the maximum length of a string.
+// Space complexity: O(n * k) for storing the anagrams in the map.
   
 
 // String Compression:

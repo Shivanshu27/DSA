@@ -1,32 +1,32 @@
 function remove_duplicate(arr,n){
     //code here
-    // let result = [];
-    // let charCount = {};
-    // for(let i = 0; i < n; i++){
-    //     if(!charCount[arr[i]]){
-    //         charCount[arr[i]] = true;
-    //         result.push(arr[i]);
-    //     }
-    // }
-    // return result.length;
-        // If the array is empty or has only one element, it's already unique
-        if (n == 0 || n == 1) return n;
-    
-        // Initialize the index of the next unique element
-        let i = 0;
-    
-        // Traverse the array starting from the second element
-        for (let j = 1; j < n; j++) {
-            // If the current element is not equal to the last unique element
-            if (arr[i] !== arr[j]) {
-                // Move to the next position and set the element
-                i++;
-                arr[i] = arr[j];
-            }
+    let result = [];
+    let charCount = {};
+    for(let i = 0; i < n; i++){
+        if(!charCount[arr[i]]){
+            charCount[arr[i]] = true;
+            result.push(arr[i]);
         }
+    }
+    return result;
+    //     // If the array is empty or has only one element, it's already unique
+    //     if (n == 0 || n == 1) return n;
     
-        // The number of unique elements is i + 1
-        return i + 1;
+    //     // Initialize the index of the next unique element
+    //     let i = 0;
+    
+    //     // Traverse the array starting from the second element
+    //     for (let j = 1; j < n; j++) {
+    //         // If the current element is not equal to the last unique element
+    //         if (arr[i] !== arr[j]) {
+    //             // Move to the next position and set the element
+    //             i++;
+    //             arr[i] = arr[j];
+    //         }
+    //     }
+    
+    //     // The number of unique elements is i + 1
+    //     return i + 1;
     
 }
 
